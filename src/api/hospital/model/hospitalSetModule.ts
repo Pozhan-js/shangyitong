@@ -27,3 +27,13 @@ export interface responseHospitalSet {
   total: number,
   records: HospitalSetDataList
 }
+
+// 添加医院配置接口
+export interface AddHospitalSetData {
+  id: string
+  hosname: string;
+  hoscode: string;
+  apiUrl: string;
+  contactsName: string;
+  contactsPhone: string;
+}

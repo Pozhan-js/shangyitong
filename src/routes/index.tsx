@@ -17,6 +17,8 @@ const Dashboard = lazy(() => import("@pages/dashboard"));
 const NotFound = lazy(() => import("@pages/404"));
 
 const HospitalList = lazy(() => import("@pages/hospital/hospitalList"));
+const HospitalShow = lazy(() => import("@pages/hospital/hospitalList/components/HospitalShow"));
+const HospitalSchedule = lazy(() => import("@pages/hospital/hospitalList/components/HospitalSchedule"));
 
 const HospitalSet = lazy(() => import("@pages/hospital/hospitalSet"));
 const HospitalSetAddOrUpdate = lazy(() => import("@pages/hospital/hospitalSet/components/HospitalSetAddOrUpdate"))
@@ -71,9 +73,30 @@ const routes: XRoutes = [
             hidden: true
           },
           {
+            path: "/syt/hospital/hospitalSet/edit/:id",
+            meta: { title: "编辑医院" },
+            element: load(HospitalSetAddOrUpdate),
+            // 隐藏menu
+            hidden: true
+          },
+          {
             path: "/syt/hospital/hospitalList",
             meta: { title: "医院列表" },
             element: load(HospitalList),
+          },
+          {
+            path: "/syt/hospital/hospitalList/show/:id",
+            meta: { title: "医院详情" },
+            element: load(HospitalShow),
+            // 隐藏menu
+            hidden: true
+          },
+          {
+            path: "/syt/hospital/hospitalList/schedule/:hoscode",
+            meta: { title: "医院排班" },
+            element: load(HospitalSchedule),
+            // 隐藏menu
+            hidden: true
           },
         ]
       },
